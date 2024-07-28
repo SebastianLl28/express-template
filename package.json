@@ -1,0 +1,73 @@
+{
+  "name": "app",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "lint": "ts-standard",
+    "lint:fix": "ts-standard --fix",
+    "build": "tsc",
+    "start": "node --env-file=.env dist/index.js",
+    "dev": "nodemon --exec node -r ts-node/register --env-file=.env ./src/index.ts",
+    "prisma:init": "prisma init --datasource-provider mysql",
+    "prisma:migrate": "prisma migrate dev --name migrate",
+    "prisma:seed": "prisma migrate reset && ts-node prisma/seed.ts",
+    "prisma:studio": "prisma studio"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "5.17.0",
+    "bcrypt": "^5.1.1",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^20.14.12",
+    "@types/supertest": "^6.0.2",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.6",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.4",
+    "prisma": "^5.17.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.3",
+    "ts-node": "^10.9.2",
+    "ts-standard": "^12.0.2",
+    "typescript": "5.1.6"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/ts-standard/eslintrc.json"
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "ignorePatterns": [
+      "dist/",
+      "node_modules/",
+      "prisma/**/*.prisma"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "src/router/*.ts"
+        ],
+        "rules": {
+          "@typescript-eslint/no-misused-promises": "off"
+        }
+      }
+    ]
+  }
+}
