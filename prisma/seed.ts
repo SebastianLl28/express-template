@@ -2,7 +2,7 @@ import { PrismaClient, user } from '@prisma/client'
 import { createUser } from '../src/service/user.service'
 const prisma = new PrismaClient()
 
-const main = async (): Promise<void> => {
+export const main = async (): Promise<void> => {
   const users: user[] = [{
     id: 1,
     name: 'Betsaly',
@@ -32,12 +32,14 @@ const main = async (): Promise<void> => {
   }
 }
 
-main().then(async () => {
-  await prisma.$disconnect()
-  console.log('Seed data created')
-  process.exit(0)
-}).catch(async (err) => {
-  await prisma.$disconnect()
-  console.error(err)
-  process.exit(1)
-})
+if (require.main === module) {
+  main().then(async () => {
+    await prisma.$disconnect()
+    console.log('Seed data created')
+    process.exit(0)
+  }).catch(async (err) => {
+    await prisma.$disconnect()
+    console.error(err)
+    process.exit(1)
+  })
+}
