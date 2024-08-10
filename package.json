@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest --coverage --runInBand",
     "lint": "ts-standard",
     "lint:fix": "ts-standard --fix",
     "build": "tsc",
