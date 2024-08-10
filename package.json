@@ -62,7 +62,7 @@
     "overrides": [
       {
         "files": [
-          "src/router/*.ts"
+          "src/router/**/*.ts"
         ],
         "rules": {
           "@typescript-eslint/no-misused-promises": "off"

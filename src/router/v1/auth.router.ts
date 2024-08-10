@@ -1,8 +1,8 @@
 import { Router } from 'express'
-import { postLogin, putPassword, verifyToken } from '../controller/auth.controller'
-import schemaValidator from '../middleware/schemaValidator.middleware'
-import { loginSchema, updatePasswordSchema } from '../schema/auth.schema'
-import { jwtValidator } from '../middleware/jwt.middeware'
+import { postLogin, putPassword, verifyToken } from '../../controller/auth.controller'
+import schemaValidator from '../../middleware/schemaValidator.middleware'
+import { loginSchema, updatePasswordSchema } from '../../schema/auth.schema'
+import { jwtValidator } from '../../middleware/jwt.middeware'
 
 const router = Router()
 

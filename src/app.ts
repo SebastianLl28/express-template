@@ -1,7 +1,7 @@
 import express from 'express'
 import swaggerUI from 'swagger-ui-express'
 
-import { authRouter, userRouter } from './router'
+import { routeV1 } from './router'
 import morgan from 'morgan'
 import { swaggerDocs } from './config/swagger'
 
@@ -17,7 +17,6 @@ app.get('/healthCheck', (req, res) => {
   res.status(200).json({ message: 'Server is running' })
 })
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
-app.use('/user', userRouter)
-app.use('/auth', authRouter)
+app.use(routeV1)
 
 export default app

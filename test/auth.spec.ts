@@ -3,13 +3,14 @@ import app from '../src/app'
 import { loginRequest } from './fixture/auth.fixture'
 import { comparePassword } from '../src/lib/bcrypt'
 import { prismaClient } from '../src/lib'
+import { authAPI } from './consts'
 
 describe('Auth', () => {
   let token: string
   let loginStatus: number
 
   beforeEach(async () => {
-    const res = await request(app).post('/auth/login').send(loginRequest)
+    const res = await request(app).post(`${authAPI}/login`).send(loginRequest)
     token = res.body.token as string
     loginStatus = res.status
   })
@@ -19,7 +20,7 @@ describe('Auth', () => {
   })
 
   test('Verify Token', async () => {
-    const response = await request(app).get('/auth/verify').set('Authorization', `Bearer ${token}`)
+    const response = await request(app).get(`${authAPI}/verify`).set('Authorization', `Bearer ${token}`)
     expect(response.status).toEqual(200)
   })
 
@@ -27,7 +28,7 @@ describe('Auth', () => {
     const newPassword = '12345'
 
     const response = await request(app)
-      .put('/auth/password')
+      .put(`${authAPI}/password`)
       .set('Authorization', `Bearer ${token}`)
       .send({
         password: '1234',
