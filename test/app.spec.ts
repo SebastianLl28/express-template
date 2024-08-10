@@ -4,6 +4,6 @@ import app from '../src/app'
 describe('App', () => {
   test('Get Health Check', async () => {
     const res = await request(app).get('/healthCheck')
-    expect(res.status).toEqual(200)
+    expect(200).toEqual(res.status)
   })
 })

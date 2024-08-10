@@ -1,13 +1,14 @@
 import { PrismaClient, user } from '@prisma/client'
-import { createUser } from '../src/service/user.service'
+import { hash } from 'bcrypt'
 const prisma = new PrismaClient()
 
 export const main = async (): Promise<void> => {
-  const users: user[] = [{
+  await prisma.user.deleteMany({})
+  const createUsers = async (): Promise<user[]> => [{
     id: 1,
     name: 'Betsaly',
     email: 'betsaly@gmail.com',
-    password: '1234',
+    password: await hash('1234', 10),
     address: '1234 Main St',
     status: 'ACTIVE'
   },
@@ -15,7 +16,7 @@ export const main = async (): Promise<void> => {
     id: 2,
     name: 'Bob',
     email: 'bob@gmail.com',
-    password: '1234',
+    password: await hash('1234', 10),
     address: '1234 Main St',
     status: 'INACTIVE'
   },
@@ -23,13 +24,15 @@ export const main = async (): Promise<void> => {
     id: 3,
     name: 'Charlie',
     email: 'charlie@gmail.com',
-    password: '1234',
+    password: await hash('1234', 10),
     address: '1234 Main St',
     status: 'UNVERIFIED'
   }]
-  for (const user of users) {
-    await createUser(user)
-  }
+  const users = await createUsers()
+  console.log('before create many')
+  await prisma.user.createMany({
+    data: users
+  })
 }
 
 if (require.main === module) {
