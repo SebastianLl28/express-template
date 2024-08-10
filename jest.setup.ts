@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client'
 import { main } from './prisma/seed'
 
 const prisma = new PrismaClient()
-beforeAll(async () => {
+beforeEach(async () => {
   await prisma.$connect()
   await main()
 })
