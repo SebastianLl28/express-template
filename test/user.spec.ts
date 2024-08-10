@@ -1,8 +1,8 @@
-import app from '../src/app'
 import request from 'supertest'
+import app from '@src/app'
 import { loginRequest } from './fixture/auth.fixture'
 import { getUserResponse, getUsersResponse, postUserRequest, putUserRequest } from './fixture/user.fixture'
-import { findUserByEmail } from '../src/service/user.service'
+import { findUserByEmail } from '@src/service/user.service'
 import { authAPI, userAPI } from './consts'
 
 describe('User', () => {

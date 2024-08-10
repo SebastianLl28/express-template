@@ -1,8 +1,7 @@
 import request from 'supertest'
-import app from '../src/app'
+import app from '@src/app'
+import { comparePassword, prismaClient } from '@src/lib'
 import { loginRequest } from './fixture/auth.fixture'
-import { comparePassword } from '../src/lib/bcrypt'
-import { prismaClient } from '../src/lib'
 import { authAPI } from './consts'
 
 describe('Auth', () => {

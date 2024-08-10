@@ -1,5 +1,6 @@
+import app from '@src/app'
 import request from 'supertest'
-import app from '../src/app'
+// import app from '../src/app'
 
 describe('App', () => {
   test('Get Health Check', async () => {

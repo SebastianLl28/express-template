@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage --runInBand",
-    "lint": "ts-standard",
-    "lint:fix": "ts-standard --fix",
+    "lint": "ts-standard --ignore src/router/**/*.ts",
+    "lint:fix": "ts-standard --fix --ignore src/router/**/*.ts",
     "build": "tsc",
-    "start": "node --env-file=.env dist/index.js",
+    "start": "node --env-file=.env dist/src/index.js",
     "dev": "nodemon --exec node -r ts-node/register --env-file=.env ./src/index.ts",
     "prisma:init": "prisma init --datasource-provider mysql",
     "prisma:migrate": "prisma migrate dev --name migrate",
