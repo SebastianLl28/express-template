@@ -4,6 +4,8 @@ import { TLoginSchema, TUpdatePasswordSchema } from '../schema/auth.schema'
 import { findUserByEmail, updatePasswordById } from '../service/user.service'
 import { signToken } from '../lib/jwt'
 import { comparePassword } from '../lib'
+import { sendEmail } from '../lib/email'
+import { noticeTemplate } from '../public/html/noticeTemplate'
 
 export const postLogin = async (req: Request<unknown, unknown, TLoginSchema>, res: Response): Promise<Response> => {
   const { email, password } = req.body
@@ -31,6 +33,7 @@ export const putPassword = async (req: Request<unknown, unknown, IRequestUpdateP
       return res.status(400).json({ error: 'Passwords do not match' })
     }
     await updatePasswordById(user.id, newPassword, password)
+    await sendEmail([user.email], 'Cambio de contraseña', noticeTemplate(user.name))
     return res.status(200).json({ message: 'Password updated' })
   } catch (error) {
     console.log(error)
