@@ -1,12 +1,15 @@
 import express from 'express'
 import swaggerUI from 'swagger-ui-express'
 import helmet from 'helmet'
+import cors from 'cors'
 
 import { routeV1 } from './router'
 import morgan from 'morgan'
 import { swaggerDocs } from './config/swagger'
 
 const app = express()
+
+app.use(cors())
 
 app.use(helmet())
 
