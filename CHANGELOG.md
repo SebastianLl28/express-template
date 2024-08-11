@@ -8,3 +8,10 @@ All notable changes to this project will be documented in this file. See [standa
 ### Features
 
 * :sparkles: Add send email with nodemailer and mailtrap ([c3d8fcd](https://github.com/SebastianLl28/express-template/commit/c3d8fcd88edc467f94fce038e517d26d7ac52ced))
+
+### 0.0.1 (2024-08-11)
+
+
+### Features
+
+* :sparkles: Add send email with nodemailer and mailtrap ([c3d8fcd](https://github.com/SebastianLl28/express-template/commit/c3d8fcd88edc467f94fce038e517d26d7ac52ced))
