@@ -1,6 +1,6 @@
 {
   "name": "app",
-  "version": "0.0.4",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -14,10 +14,9 @@
     "prisma:migrate": "prisma migrate dev --name migrate",
     "prisma:seed": "prisma migrate reset && ts-node prisma/seed.ts",
     "prisma:studio": "prisma studio",
-    "release": "standard-version && git push --follow-tags --no-verify",
+    "release": "standard-version",
     "prepare": "husky",
-    "pre-commit": "pnpm lint && pnpm test",
-    "pre-push": "pnpm release"
+    "pre-commit": "pnpm lint && pnpm test"
   },
   "keywords": [],
   "author": "",
