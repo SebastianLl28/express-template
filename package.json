@@ -10,13 +10,13 @@
     "build": "tsc",
     "start": "node --env-file=.env dist/src/index.js",
     "dev": "nodemon --exec node -r ts-node/register --env-file=.env ./src/index.ts",
-    "prisma:init": "prisma init --datasource-provider mysql",
     "prisma:migrate": "prisma migrate dev --name migrate",
     "prisma:seed": "prisma migrate reset && ts-node prisma/seed.ts",
     "prisma:studio": "prisma studio",
     "release": "standard-version",
-    "prepare": "husky",
-    "pre-commit": "pnpm lint && pnpm test"
+    "pre-commit": "pnpm lint && pnpm test",
+    "husky:install": "husky install",
+    "husky:uninstall": "husky uninstall"
   },
   "keywords": [],
   "author": "",
