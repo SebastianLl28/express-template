@@ -56,8 +56,8 @@ const putUser = async (req: Request<unknown, unknown, IRequestUpdate>, res: Resp
 const deleteUser = async (req: Request<TDeleteUserSchemaParams, unknown, unknown>, res: Response): Promise<Response> => {
   try {
     const { id } = req.params
-    const user = await deleteUserById(Number(id))
-    return res.status(200).json(user)
+    await deleteUserById(Number(id))
+    return res.status(200).json({ message: 'User deleted' })
   } catch (error) {
     return res.status(500).json(error)
   }
