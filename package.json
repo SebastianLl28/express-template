@@ -15,8 +15,8 @@
     "prisma:studio": "prisma studio",
     "release": "standard-version",
     "pre-commit": "pnpm lint && pnpm test",
-    "husky:install": "husky install",
-    "husky:uninstall": "husky uninstall"
+    "husky:install": "husky",
+    "husky:uninstall": "rm -rf .husky"
   },
   "keywords": [],
   "author": "",
