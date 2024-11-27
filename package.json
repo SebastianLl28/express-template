@@ -13,6 +13,8 @@
     "prisma:migrate": "prisma migrate dev --name migrate",
     "prisma:seed": "prisma migrate reset --force && ts-node prisma/seed.ts",
     "prisma:studio": "prisma studio",
+    "prisma:pull": "prisma db pull",
+    "prisma:generate": "prisma generate",
     "release": "standard-version",
     "pre-commit": "pnpm lint && pnpm test",
     "husky:install": "husky",
