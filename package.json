@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "pnpm prisma:seed && jest --coverage --runInBand",
-    "lint": "ts-standard --ignore src/router/**/*.ts",
+    "lint": "ts-standard --ignore /src/router/**/*.ts",
     "lint:fix": "ts-standard --fix --ignore src/router/**/*.ts",
     "build": "tsc -p tsconfig.build.json",
     "start": "node --env-file=.env dist/src/index.js",
@@ -79,7 +79,7 @@
     "overrides": [
       {
         "files": [
-          "src/router/**/*.ts"
+          "/src/router/**/*.ts"
         ],
         "rules": {
           "@typescript-eslint/no-misused-promises": "off"
