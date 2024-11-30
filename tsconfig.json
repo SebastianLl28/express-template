@@ -12,5 +12,5 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "exclude": ["test", "jest.setup.ts", "dist", "prisma"]
+  "exclude": ["dist"]
 }
