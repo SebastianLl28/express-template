@@ -7,7 +7,7 @@
     "test": "pnpm prisma:seed && jest --coverage --runInBand",
     "lint": "ts-standard --ignore src/router/**/*.ts",
     "lint:fix": "ts-standard --fix --ignore src/router/**/*.ts",
-    "build": "tsc",
+    "build": "tsc -p tsconfig.json",
     "start": "node --env-file=.env dist/src/index.js",
     "dev": "nodemon --exec node -r ts-node/register --env-file=.env ./src/index.ts",
     "prisma:migrate": "prisma migrate dev --name migrate",
